@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="1" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="11.582524">
+<testcase classname="feature to navigate to Canada Roots Webpage" name="Check if user is able to navigate to Canada roots Webpage" time="11.582524">
+<failure message="java.lang.AssertionError: no such country present expected:&lt;CANADA ENGLISH123&gt; but was:&lt;[CANADA ENGLISH, CANADA FRANÇAIS, UNITED STATES]&gt;&#10;&#9;at org.junit.Assert.fail(Assert.java:88)&#10;&#9;at org.junit.Assert.failNotEquals(Assert.java:834)&#10;&#9;at org.junit.Assert.assertEquals(Assert.java:118)&#10;&#9;at Pages.LandingPage.selectCountry(LandingPage.java:79)&#10;&#9;at StepDefinations.LandingSteps.selectCountry(LandingSteps.java:45)&#10;&#9;at ✽.And user clicks on &quot;CANADA ENGLISH123&quot; button(applicationlanding.feature:8)&#10;"><![CDATA[Given launches the application..............................................passed
+Then user verifies visiblitity of logo......................................passed
+Then user verifies welcome message present on landing page..................passed
+And user clicks on "CANADA ENGLISH123" button...............................failed
+Then user verifies if all menuItems are present.............................skipped
+Then user hovers on "WOMEN" menuItem........................................skipped
+Then user hovers and click on "KIDS" menuItem...............................skipped
+And user close alert popup..................................................skipped
+Then user closes the browser................................................skipped
+
+StackTrace:
+java.lang.AssertionError: no such country present expected:<CANADA ENGLISH123> but was:<[CANADA ENGLISH, CANADA FRANÇAIS, UNITED STATES]>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:834)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at Pages.LandingPage.selectCountry(LandingPage.java:79)
+	at StepDefinations.LandingSteps.selectCountry(LandingSteps.java:45)
+	at ✽.And user clicks on "CANADA ENGLISH123" button(applicationlanding.feature:8)
+]]></failure>
+</testcase>
+</testsuite>
