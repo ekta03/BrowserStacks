@@ -19,6 +19,7 @@ import org.openqa.selenium.support.PageFactory;
 import static generalutils.ApplicationUtils.WAS_NOT_VISIBLE;
 import static org.junit.Assert.assertTrue;
 import org.openqa.selenium.interactions.Actions;
+import java.lang.ClassNotFoundException;
 
 public class SignUpPage extends BasePage {
 

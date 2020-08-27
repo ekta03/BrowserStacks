@@ -17,7 +17,7 @@ formatter.feature({
   ]
 });
 formatter.before({
-  "duration": 61490016,
+  "duration": 78505366,
   "status": "passed"
 });
 formatter.scenario({
@@ -45,7 +45,7 @@ formatter.step({
 });
 formatter.step({
   "line": 8,
-  "name": "user clicks on \"CANADA ENGLISH123\" button",
+  "name": "user clicks on \"CANADA ENGLISH\" button",
   "keyword": "And "
 });
 formatter.step({
@@ -93,42 +93,42 @@ formatter.match({
   "location": "LandingSteps.launch_browser()"
 });
 formatter.result({
-  "duration": 10124178151,
+  "duration": 12516477227,
   "status": "passed"
 });
 formatter.match({
   "location": "LandingSteps.visiblitity_of_logo()"
 });
 formatter.result({
-  "duration": 44268963,
+  "duration": 44779421,
   "status": "passed"
 });
 formatter.match({
   "location": "LandingSteps.validate_welcomeMessage()"
 });
 formatter.result({
-  "duration": 22551292,
+  "duration": 21455135,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "CANADA ENGLISH123",
+      "val": "CANADA ENGLISH",
       "offset": 16
     }
   ],
   "location": "LandingSteps.selectCountry(String)"
 });
 formatter.result({
-  "duration": 107329289,
-  "error_message": "java.lang.AssertionError: no such country present expected:\u003cCANADA ENGLISH123\u003e but was:\u003c[CANADA ENGLISH, CANADA FRANÇAIS, UNITED STATES]\u003e\n\tat org.junit.Assert.fail(Assert.java:88)\n\tat org.junit.Assert.failNotEquals(Assert.java:834)\n\tat org.junit.Assert.assertEquals(Assert.java:118)\n\tat Pages.LandingPage.selectCountry(LandingPage.java:79)\n\tat StepDefinations.LandingSteps.selectCountry(LandingSteps.java:45)\n\tat ✽.And user clicks on \"CANADA ENGLISH123\" button(applicationlanding.feature:8)\n",
-  "status": "failed"
+  "duration": 7591841031,
+  "status": "passed"
 });
 formatter.match({
   "location": "LandingSteps.selectMenuItem(String\u003e\u003e)"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 963967570,
+  "status": "passed"
 });
 formatter.match({
   "arguments": [
@@ -140,7 +140,8 @@ formatter.match({
   "location": "LandingSteps.hoversOnMenuItem(String)"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 383235129,
+  "status": "passed"
 });
 formatter.match({
   "arguments": [
@@ -152,23 +153,25 @@ formatter.match({
   "location": "LandingSteps.hoversandClilckItem(String)"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 9619950764,
+  "status": "passed"
 });
 formatter.match({
   "location": "LandingSteps.cancelPopup()"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 961401540,
+  "status": "passed"
 });
 formatter.match({
   "location": "LandingSteps.closeBrowser()"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 140060990,
+  "status": "passed"
 });
-formatter.embedding("image/png", "embedded0.png");
 formatter.after({
-  "duration": 1222706468,
+  "duration": 444323,
   "status": "passed"
 });
 });

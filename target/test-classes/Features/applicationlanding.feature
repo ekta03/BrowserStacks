@@ -5,7 +5,7 @@ Feature: feature to navigate to Canada Roots Webpage
     Given launches the application
     Then user verifies visiblitity of logo
     Then user verifies welcome message present on landing page
-    And user clicks on "CANADA ENGLISH123" button
+    And user clicks on "CANADA ENGLISH" button
     Then user verifies if all menuItems are present
     | NEW FOR MAY | WOMEN | MEN | KIDS | SWEATS | LEATHER | FOOTWEAR | ABOUT US | SALE |
     Then user hovers on "WOMEN" menuItem

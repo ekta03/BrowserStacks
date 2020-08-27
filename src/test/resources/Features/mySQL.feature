@@ -1,4 +1,4 @@
-@sql123
+@sql
 Feature: Handling MySQL Databases
   This feature file describes how to handle MySQL databases
   
@@ -18,4 +18,3 @@ Scenario Outline:: user signUp into the application
     |row_index|col_index|userID|province|
     |1|0|1|1|
     |2|0|2|2|
-    

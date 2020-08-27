@@ -16,4 +16,3 @@ Scenario Outline:: user signUp into the application
     |row_index|col_index|
     |1|0|
     |2|0|
-  	
