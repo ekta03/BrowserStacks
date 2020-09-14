@@ -52,8 +52,9 @@ public class LandingPage extends BasePage {
 	// ################################ METHODS ##########################################
 
 	public void verifyLogo() {
-		waitForVisibilityOfElement(logo_roots, 10);
-		// logo_roots.isDisplayed();
+		//setSleepTime(5000);	
+		logo_roots.isDisplayed();
+		//waitForVisibilityOfElement(logo_roots, 20);
 	}
 
 	public void validateMessage() {

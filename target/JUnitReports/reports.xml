@@ -1,14 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="32.322118">
-<testcase classname="feature to navigate to Canada Roots Webpage" name="Check if user is able to navigate to Canada roots Webpage" time="32.322118">
-<system-out><![CDATA[Given launches the application..............................................passed
-Then user verifies visiblitity of logo......................................passed
-Then user verifies welcome message present on landing page..................passed
-And user clicks on "CANADA ENGLISH" button..................................passed
-Then user verifies if all menuItems are present.............................passed
-Then user hovers on "WOMEN" menuItem........................................passed
-Then user hovers and click on "KIDS" menuItem...............................passed
-And user close alert popup..................................................passed
-Then user closes the browser................................................passed
-]]></system-out>
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="1" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="15.90731">
+<testcase classname="feature to navigate to Canada Roots Webpage" name="Check if user is able to navigate to Canada roots Webpage" time="15.90731">
+<failure message="org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?&#10;Build info: version: '3.12.0', revision: '7c6e0b3', time: '2018-05-08T14:04:26.12Z'&#10;System info: host: 'WKMIN8949685', ip: '2405:201:5c0b:b828:797d:105b:57e9:75b2%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.14.6', java.version: '14.0.2'&#10;Driver info: driver.version: RemoteWebDriver&#10;&#9;at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:125)&#10;&#9;at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)&#10;&#9;at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:317)&#10;&#9;at org.openqa.selenium.remote.RemoteWebDriver.findElementByClassName(RemoteWebDriver.java:403)&#10;&#9;at org.openqa.selenium.By$ByClassName.findElement(By.java:389)&#10;&#9;at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:309)&#10;&#9;at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)&#10;&#9;at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)&#10;&#9;at com.sun.proxy.$Proxy22.isDisplayed(Unknown Source)&#10;&#9;at Pages.LandingPage.verifyLogo(LandingPage.java:56)&#10;&#9;at StepDefinations.LandingSteps.visiblitity_of_logo(LandingSteps.java:41)&#10;&#9;at ✽.Then user verifies visiblitity of logo(applicationlanding.feature:7)&#10;"><![CDATA[Given launches the application..............................................passed
+Then user verifies visiblitity of logo......................................failed
+Then user verifies welcome message present on landing page..................skipped
+And user clicks on "CANADA ENGLISH" button..................................skipped
+Then user verifies if all menuItems are present.............................skipped
+Then user hovers on "WOMEN" menuItem........................................skipped
+Then user hovers and click on "KIDS" menuItem...............................skipped
+And user close alert popup..................................................skipped
+Then user closes the browser................................................skipped
+
+StackTrace:
+org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '3.12.0', revision: '7c6e0b3', time: '2018-05-08T14:04:26.12Z'
+System info: host: 'WKMIN8949685', ip: '2405:201:5c0b:b828:797d:105b:57e9:75b2%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.14.6', java.version: '14.0.2'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:125)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:317)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByClassName(RemoteWebDriver.java:403)
+	at org.openqa.selenium.By$ByClassName.findElement(By.java:389)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:309)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy22.isDisplayed(Unknown Source)
+	at Pages.LandingPage.verifyLogo(LandingPage.java:56)
+	at StepDefinations.LandingSteps.visiblitity_of_logo(LandingSteps.java:41)
+	at ✽.Then user verifies visiblitity of logo(applicationlanding.feature:7)
+]]></failure>
 </testcase>
 </testsuite>

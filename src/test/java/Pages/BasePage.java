@@ -3,6 +3,8 @@ package Pages;
 //import static io.restassured.RestAssured.given;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,13 +19,18 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -33,20 +40,83 @@ import generalutils.log;
 
 public class BasePage {
 
-	String userName = "storefront";
-	String password = "root5";
-	String url = "dev.roots.com/";
-	String targetUrl = "https://" + (userName) + ":" + (password) + "@" + (url);
+	public static final String userName = "storefront";
+	public static final String password = "root5";
+	public static final String url = "dev.roots.com/";
+	// String targetUrl = "https://" + (userName) + ":" + (password) + "@" + (url);
 	public static WebDriver driver;
 	public static LandingPage landingPage;
 	public static SignUpPage signUpPage;
 	public static ApiAutomationPage apiAutomationPage;
-	public static Hook hooks;
+	public static Hooks hooks;
 	protected WebDriverWait wait;
 	static String projectPath = System.getProperty("user.dir");
 	static XSSFWorkbook workBook;
 	static XSSFSheet sheet;
-	//String reportConfigPath="/Users/ektkripl/Desktop/new Project/CucumberJava/extent-config.xml";
+	// String reportConfigPath="/Users/ektkripl/Desktop/new
+	// Project/CucumberJava/extent-config.xml";
+
+	public static final String USERNAME = "ektakriplani1";
+	public static final String ACCESS_KEY = "EN1pK76J9fc1ufZPAZps";
+	public static final String BrowserStackUrl = "https://" + USERNAME + ":" + ACCESS_KEY
+			+ "@hub.browserstack.com/wd/hub";
+	public static final String targetUrl = "https://" + (userName) + ":" + (password) + "@" + (url);
+
+//	public WebDriver getDriver() throws Exception {
+//		try {
+//		DesiredCapabilities caps = DesiredCapabilities.chrome();
+//		caps.setCapability("platform", "windows 10");
+//		caps.setCapability("version", "latest");
+//		caps.setCapability("name", "RootsCanada");
+//		caps.setCapability("extendedDebugging", "true");
+////		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+////		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+////		driver.manage().window().maximize();
+//		WebDriver driver = new RemoteWebDriver(new java.net.URL(SauceLabsUrl),caps);
+//		
+//		driver.get(targetUrl);
+//		System.out.println(driver.getTitle());
+//		//driver.findElement(By.xpath("//img[@class='logo']")).isDisplayed();
+//		//driver.findElement(By.xpath("//span[@class='country-name'][1]")).click();
+//		//waitForVisibilityOfElement("//span[@class='country-name']", 20);
+//		//driver.navigate().to(targetUrl);
+//		hooks = PageFactory.initElements(driver, Hook.class);
+//		landingPage = PageFactory.initElements(driver, LandingPage.class);
+//		signUpPage = PageFactory.initElements(driver, SignUpPage.class);
+//		apiAutomationPage = PageFactory.initElements(driver, ApiAutomationPage.class);
+//		}
+//		
+//		finally {
+//			//driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+//			hooks = PageFactory.initElements(driver, Hook.class);
+//			landingPage = PageFactory.initElements(driver, LandingPage.class);
+//			signUpPage = PageFactory.initElements(driver, SignUpPage.class);
+//			apiAutomationPage = PageFactory.initElements(driver, ApiAutomationPage.class);
+//		}
+//		return driver;
+//	}
+
+	public void openSTM() throws MalformedURLException{
+		try {
+			DesiredCapabilities capability = new DesiredCapabilities();
+			capability.setPlatform(Platform.MAC);
+			capability.setBrowserName("firefox");
+			capability.setVersion("38");
+			capability.setCapability("browserstack.debug", "true");
+			URL browserStackUrl = new URL(BrowserStackUrl);
+			driver = new RemoteWebDriver(browserStackUrl, capability);
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			driver.get(targetUrl);
+		}
+
+		finally {
+			hooks = PageFactory.initElements(driver, Hooks.class);
+			landingPage = PageFactory.initElements(driver, LandingPage.class);
+			signUpPage = PageFactory.initElements(driver, SignUpPage.class);
+			apiAutomationPage = PageFactory.initElements(driver, ApiAutomationPage.class);
+		}
+		driver.quit();
+	}
 
 	public WebDriver getDriver() {
 		try {
@@ -56,20 +126,48 @@ public class BasePage {
 			driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 			driver.manage().window().maximize();
 			driver.navigate().to(targetUrl);
+			System.out.println(driver.getTitle());
 		}
 
 		finally {
 			// driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-			hooks = PageFactory.initElements(driver, Hook.class);
+			hooks = PageFactory.initElements(driver, Hooks.class);
 			landingPage = PageFactory.initElements(driver, LandingPage.class);
 			signUpPage = PageFactory.initElements(driver, SignUpPage.class);
 			apiAutomationPage = PageFactory.initElements(driver, ApiAutomationPage.class);
-			
 
 		}
 		return driver;
 	}
-	
+
+	public WebDriver getDriver(String browserName) {
+		try {
+			if (browserName.equalsIgnoreCase("chrome")) {
+				System.getProperty("webdriver.chrome.driver");
+				driver = new ChromeDriver();
+			}
+
+			else if (browserName.equalsIgnoreCase("FireFox")) {
+				driver = new FirefoxDriver();
+			}
+			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+			driver.manage().window().maximize();
+			driver.navigate().to(targetUrl);
+			System.out.println(driver.getTitle());
+		}
+
+		finally {
+			// driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+			hooks = PageFactory.initElements(driver, Hooks.class);
+			landingPage = PageFactory.initElements(driver, LandingPage.class);
+			signUpPage = PageFactory.initElements(driver, SignUpPage.class);
+			apiAutomationPage = PageFactory.initElements(driver, ApiAutomationPage.class);
+
+		}
+		return driver;
+	}
+
 	public static void grabScreenshotForReport(WebDriver driver, Scenario scenario) {
 		try {
 			byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
@@ -813,7 +911,7 @@ public class BasePage {
 
 	public static String getCellDataString(int rowNum, int colNum, String path) {
 		try {
-			//projectPath = System.getProperty("user.dir");
+			// projectPath = System.getProperty("user.dir");
 			// String filePath = projectPath + "/excel/"+path;
 			workBook = new XSSFWorkbook(projectPath + "/excel/" + path);
 			// System.out.println("workbook path" + filePath);
@@ -832,7 +930,7 @@ public class BasePage {
 
 	public static void getCellDataNumber(int rowNum, int colNum) {
 		try {
-			//projectPath = System.getProperty("user.dir");
+			// projectPath = System.getProperty("user.dir");
 			workBook = new XSSFWorkbook(projectPath + "/excel/canadaRoots_data.xlsx");
 			sheet = workBook.getSheet("signUp");
 			double celldata = sheet.getRow(rowNum).getCell(colNum).getNumericCellValue();
@@ -845,7 +943,7 @@ public class BasePage {
 		}
 
 	}
-	
+
 //	public void checkApiStatus(String url) throws Throwable {
 //        System.out.println("Add URL :"+url);
 //		given().

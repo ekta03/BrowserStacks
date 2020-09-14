@@ -17,7 +17,7 @@ formatter.feature({
   ]
 });
 formatter.before({
-  "duration": 78505366,
+  "duration": 54000550,
   "status": "passed"
 });
 formatter.scenario({
@@ -29,27 +29,33 @@ formatter.scenario({
   "keyword": "Scenario"
 });
 formatter.step({
-  "line": 5,
+  "comments": [
+    {
+      "line": 5,
+      "value": "# Given launches the application in \"chrome\""
+    }
+  ],
+  "line": 6,
   "name": "launches the application",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 6,
+  "line": 7,
   "name": "user verifies visiblitity of logo",
   "keyword": "Then "
 });
 formatter.step({
-  "line": 7,
+  "line": 8,
   "name": "user verifies welcome message present on landing page",
   "keyword": "Then "
 });
 formatter.step({
-  "line": 8,
+  "line": 9,
   "name": "user clicks on \"CANADA ENGLISH\" button",
   "keyword": "And "
 });
 formatter.step({
-  "line": 9,
+  "line": 10,
   "name": "user verifies if all menuItems are present",
   "rows": [
     {
@@ -64,28 +70,28 @@ formatter.step({
         "ABOUT US",
         "SALE"
       ],
-      "line": 10
+      "line": 11
     }
   ],
   "keyword": "Then "
 });
 formatter.step({
-  "line": 11,
+  "line": 12,
   "name": "user hovers on \"WOMEN\" menuItem",
   "keyword": "Then "
 });
 formatter.step({
-  "line": 12,
+  "line": 13,
   "name": "user hovers and click on \"KIDS\" menuItem",
   "keyword": "Then "
 });
 formatter.step({
-  "line": 13,
+  "line": 14,
   "name": "user close alert popup",
   "keyword": "And "
 });
 formatter.step({
-  "line": 14,
+  "line": 15,
   "name": "user closes the browser",
   "keyword": "Then "
 });
@@ -93,22 +99,22 @@ formatter.match({
   "location": "LandingSteps.launch_browser()"
 });
 formatter.result({
-  "duration": 12516477227,
+  "duration": 15842060109,
   "status": "passed"
 });
 formatter.match({
   "location": "LandingSteps.visiblitity_of_logo()"
 });
 formatter.result({
-  "duration": 44779421,
-  "status": "passed"
+  "duration": 10477443,
+  "error_message": "org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?\nBuild info: version: \u00273.12.0\u0027, revision: \u00277c6e0b3\u0027, time: \u00272018-05-08T14:04:26.12Z\u0027\nSystem info: host: \u0027WKMIN8949685\u0027, ip: \u00272405:201:5c0b:b828:797d:105b:57e9:75b2%en0\u0027, os.name: \u0027Mac OS X\u0027, os.arch: \u0027x86_64\u0027, os.version: \u002710.14.6\u0027, java.version: \u002714.0.2\u0027\nDriver info: driver.version: RemoteWebDriver\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:125)\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:317)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElementByClassName(RemoteWebDriver.java:403)\n\tat org.openqa.selenium.By$ByClassName.findElement(By.java:389)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:309)\n\tat org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)\n\tat org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)\n\tat com.sun.proxy.$Proxy22.isDisplayed(Unknown Source)\n\tat Pages.LandingPage.verifyLogo(LandingPage.java:56)\n\tat StepDefinations.LandingSteps.visiblitity_of_logo(LandingSteps.java:41)\n\tat ✽.Then user verifies visiblitity of logo(applicationlanding.feature:7)\n",
+  "status": "failed"
 });
 formatter.match({
   "location": "LandingSteps.validate_welcomeMessage()"
 });
 formatter.result({
-  "duration": 21455135,
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.match({
   "arguments": [
@@ -120,15 +126,13 @@ formatter.match({
   "location": "LandingSteps.selectCountry(String)"
 });
 formatter.result({
-  "duration": 7591841031,
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.match({
   "location": "LandingSteps.selectMenuItem(String\u003e\u003e)"
 });
 formatter.result({
-  "duration": 963967570,
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.match({
   "arguments": [
@@ -140,8 +144,7 @@ formatter.match({
   "location": "LandingSteps.hoversOnMenuItem(String)"
 });
 formatter.result({
-  "duration": 383235129,
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.match({
   "arguments": [
@@ -153,25 +156,22 @@ formatter.match({
   "location": "LandingSteps.hoversandClilckItem(String)"
 });
 formatter.result({
-  "duration": 9619950764,
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.match({
   "location": "LandingSteps.cancelPopup()"
 });
 formatter.result({
-  "duration": 961401540,
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.match({
   "location": "LandingSteps.closeBrowser()"
 });
 formatter.result({
-  "duration": 140060990,
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.after({
-  "duration": 444323,
+  "duration": 772207,
   "status": "passed"
 });
 });

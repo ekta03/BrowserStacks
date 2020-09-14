@@ -2,6 +2,7 @@
 @landingPage
 Feature: feature to navigate to Canada Roots Webpage
   Scenario: Check if user is able to navigate to Canada roots Webpage
+   # Given launches the application in "chrome"
     Given launches the application
     Then user verifies visiblitity of logo
     Then user verifies welcome message present on landing page

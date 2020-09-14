@@ -14,7 +14,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 
 import Pages.BasePage;
-import Pages.Hook;
+import Pages.Hooks;
 import cucumber.api.*;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -22,12 +22,18 @@ import cucumber.api.java.en.Then;
 
 public class LandingSteps extends BasePage{
 
-	WebDriver driver = Hook.driver;
+	WebDriver driver = Hooks.driver;
 	
-	@Given("launches the application")
-	public void launch_browser() {
+	@Given("launches the application in \"([^\"]*)\"$")
+	public void launch_browser(String browser) throws Exception {
 		System.out.println("Step to launch the Application in browser");
-		getDriver();
+		getDriver(browser);
+	}
+	
+	@Given("launches the application$")
+	public void launch_browser() throws Exception {
+		System.out.println("Step to launch the Application in browser");
+		openSTM();
 	}
 	
 	@Then("^user verifies visiblitity of logo$")
