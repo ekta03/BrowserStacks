@@ -13,7 +13,7 @@ import cucumber.api.junit.Cucumber;
 //import io.cucumber.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features="src/test/resources/Features",glue= {"StepDefinations", "Pages"},
+@CucumberOptions(features="./src/test/resources/Features",glue= {"StepDefinations", "Pages"},
 monochrome=true,
 plugin={"pretty","html:target/htmlReports/reports.html",
 		"json:target/JSONReports/reports.json",
@@ -22,7 +22,7 @@ tags="@landingPage")
 public class TestRunner {
 	public static void main(String[] args) throws Exception {
 		BasicConfigurator.configure();
-		JUnitCore.main("StepDefinations.TestRunner.TestRunner");
+		JUnitCore.main("StepDefinations.TestRunner");
 	}
 }
 

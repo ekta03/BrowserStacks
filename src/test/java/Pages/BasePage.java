@@ -62,50 +62,22 @@ public class BasePage {
 			+ "@hub.browserstack.com/wd/hub";
 	public static final String targetUrl = "https://" + (userName) + ":" + (password) + "@" + (url);
 
-//	public WebDriver getDriver() throws Exception {
-//		try {
-//		DesiredCapabilities caps = DesiredCapabilities.chrome();
-//		caps.setCapability("platform", "windows 10");
-//		caps.setCapability("version", "latest");
-//		caps.setCapability("name", "RootsCanada");
-//		caps.setCapability("extendedDebugging", "true");
-////		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-////		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-////		driver.manage().window().maximize();
-//		WebDriver driver = new RemoteWebDriver(new java.net.URL(SauceLabsUrl),caps);
-//		
-//		driver.get(targetUrl);
-//		System.out.println(driver.getTitle());
-//		//driver.findElement(By.xpath("//img[@class='logo']")).isDisplayed();
-//		//driver.findElement(By.xpath("//span[@class='country-name'][1]")).click();
-//		//waitForVisibilityOfElement("//span[@class='country-name']", 20);
-//		//driver.navigate().to(targetUrl);
-//		hooks = PageFactory.initElements(driver, Hook.class);
-//		landingPage = PageFactory.initElements(driver, LandingPage.class);
-//		signUpPage = PageFactory.initElements(driver, SignUpPage.class);
-//		apiAutomationPage = PageFactory.initElements(driver, ApiAutomationPage.class);
-//		}
-//		
-//		finally {
-//			//driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-//			hooks = PageFactory.initElements(driver, Hook.class);
-//			landingPage = PageFactory.initElements(driver, LandingPage.class);
-//			signUpPage = PageFactory.initElements(driver, SignUpPage.class);
-//			apiAutomationPage = PageFactory.initElements(driver, ApiAutomationPage.class);
-//		}
-//		return driver;
-//	}
-
 	public void openSTM() throws MalformedURLException{
 		try {
 			DesiredCapabilities capability = new DesiredCapabilities();
 			capability.setPlatform(Platform.MAC);
-			capability.setBrowserName("firefox");
-			capability.setVersion("38");
+			capability.setBrowserName("chrome");
+			capability.setVersion("85");
 			capability.setCapability("browserstack.debug", "true");
+			capability.setCapability("build", "MyRunningTest");
+			capability.setCapability("name", "Web Driver demo Test");
+			capability.setCapability("tags", "tag1");
+			capability.setCapability("name", "DEMO");
 			URL browserStackUrl = new URL(BrowserStackUrl);
 			driver = new RemoteWebDriver(browserStackUrl, capability);
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+			driver.manage().window().maximize();
 			driver.get(targetUrl);
 		}
 
@@ -115,10 +87,33 @@ public class BasePage {
 			signUpPage = PageFactory.initElements(driver, SignUpPage.class);
 			apiAutomationPage = PageFactory.initElements(driver, ApiAutomationPage.class);
 		}
-		driver.quit();
+	}
+	
+	public void openSTMwithBowser(String browsername) throws MalformedURLException{
+		try {
+			DesiredCapabilities capability = new DesiredCapabilities();
+			capability.setPlatform(Platform.MAC);
+			capability.setBrowserName(browsername);
+			capability.setVersion("85");
+			capability.setCapability("browserstack.debug", "true");
+			URL browserStackUrl = new URL(BrowserStackUrl);
+			driver = new RemoteWebDriver(browserStackUrl, capability);
+			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+			driver.manage().window().maximize();
+			driver.get(targetUrl);
+		}
+
+		finally {
+			hooks = PageFactory.initElements(driver, Hooks.class);
+			landingPage = PageFactory.initElements(driver, LandingPage.class);
+			signUpPage = PageFactory.initElements(driver, SignUpPage.class);
+			apiAutomationPage = PageFactory.initElements(driver, ApiAutomationPage.class);
+		}
+		//driver.quit();
 	}
 
-	public WebDriver getDriver() {
+	public WebDriver getDriver() throws Exception{
 		try {
 			System.getProperty("webdriver.chrome.driver");
 			driver = new ChromeDriver();

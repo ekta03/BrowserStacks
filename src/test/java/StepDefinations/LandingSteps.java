@@ -28,6 +28,7 @@ public class LandingSteps extends BasePage{
 	public void launch_browser(String browser) throws Exception {
 		System.out.println("Step to launch the Application in browser");
 		getDriver(browser);
+		//openSTMwithBowser(browser);
 	}
 	
 	@Given("launches the application$")
